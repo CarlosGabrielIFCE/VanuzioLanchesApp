@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Editar produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Unidade</ion-label>
+      <ion-input type="text" name="unidade" [(ngModel)]="model.unidade"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Quantidade</ion-label>
+      <ion-input type="number" name="quantidade" [(ngModel)]="model.quantidade"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Preço de venda</ion-label>
+      <ion-input type="number" name="precovenda" [(ngModel)]="model.precovenda"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Preço de compra</ion-label>
+        <ion-input type="number" name="precocompra" [(ngModel)]="model.precocompra"></ion-input>
+      </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Validade</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="validade" min="2017" max="2020-12-31" [(ngModel)]="model.validade"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Fornecedor</ion-label>
+      <ion-select name="fornecedor_id" [(ngModel)]="model.fornecedor_id">
+        <ion-option *ngFor="let fornecedor of fornecedores" value="{{ fornecedor.id }}">{{ fornecedor.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ativo</ion-label>
+      <ion-checkbox name="active" [(ngModel)]="model.active"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="save()">Salvar Produto</button>
+
+</ion-content>

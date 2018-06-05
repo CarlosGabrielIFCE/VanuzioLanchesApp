@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Vanuzio Lanches
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <img src="assets/imgs/logovanuso.png" />
+  <ion-list>
+    <button ion-item (click)="goToFornecedorPage()">
+      <ion-icon name="clipboard" item-start></ion-icon>
+      Fornecedores
+    </button>
+    <button ion-item (click)="goToProductsPage()">
+      <ion-icon name="restaurant" item-start></ion-icon>
+      Produtos
+    </button>
+    <button ion-item (click)="goToVendasPage()">
+      <ion-icon name="cash" item-start></ion-icon>
+      Vendas
+    </button>
+    <button ion-item (click)="goToClientPage()">
+      <ion-icon name="person" item-start></ion-icon>
+      Clientes
+    </button>
+  </ion-list>
 </ion-content>

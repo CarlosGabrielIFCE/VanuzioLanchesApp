@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Produtos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="filterProducts($event)" [(ngModel)]="searchText"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let product of products">
+      <button ion-item (click)="editProduct(product.id)">
+        <h1>Nome: {{ product.name }}</h1>
+        <h2>Quantidade: {{ product.quantidade }} {{ product.unidade }}</h2>
+        <h2>Preço de venda: {{ product.precovenda }}</h2>
+        <h2>Fornecedor: {{ product.fornecedor_name }} </h2>
+      </button>
+
+      <ion-item-options slide="left">
+        <button ion-button color="danger" (click)="removeProduct(product)">
+          <ion-icon name="trash"></ion-icon>
+          Excluir
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <p>Total: {{ products.length }}</p>
+      <ion-list>
+        <ion-item no-lines>
+          <ion-label>Listar Inativos</ion-label>
+          <ion-toggle name="listarInativos" [(ngModel)] = "onlyInactives" (ionChange)="getAllProducts()"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-toolbar>
+  </ion-footer>

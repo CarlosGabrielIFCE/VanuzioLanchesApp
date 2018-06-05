@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Editar venda</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Valor de Venda</ion-label>
+      <ion-input type="number" name="valorvenda" [(ngModel)]="model.valorvenda"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Desconto</ion-label>
+      <ion-input type="number" name="desconto" [(ngModel)]="model.desconto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data de compra</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="datavenda" min="2017" max="2020-12-13" [(ngModel)]="model.datavenda"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Cliente</ion-label>
+      <ion-select name="client_id" [(ngModel)]="model.client_id">
+        <ion-option *ngFor="let client of clients" value="{{ client.id }}">{{ client.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="save()">Salvar</button>
+
+</ion-content>
